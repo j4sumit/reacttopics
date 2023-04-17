@@ -2,8 +2,10 @@ import React from "react";
 function User()
 {
 return(
-<div className="App">
-<h1>Hello User  </h1>
+<div>
+<h1>Hello Component  </h1> 
+<h1>Hello Component  </h1>
+<h1>Hello Component  </h1>
 </div>
 );
 }
