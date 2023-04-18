@@ -1,47 +1,17 @@
-import React, { useState } from 'react';
+import React,{useState} from 'react';
 
 import './App.css';
-
+import Student from './Student';
 function App(){
-  const[data, setData] =useState(0);
-  function apple()
-  {
-setData(data+1);
-
-  }
+  const[name, setName]= useState("Sumit");
   return(
-    <div className='App'>
-      <h1>{data}</h1>
-      <button onClick={apple}>update data</button>
-    </div>
-  )
-
+  <div className='App'>
+    <h1>{name}</h1>
+    <Student name={name}/>
+     {/* <Student name={"Sunil"} Email="sunit@gmail.com" other={{address: "mumbai", mobile:"8888888888888"}}/>
+    <Student name={"Sumit"} Email="sumit@gmail.com" other={{address: "patna", mobile: "88888"}}/> */}
+      <button onClick={()=> {setName("Amit")}}>update name</button>
+      </div> 
+);
 }
 export default App;
-
-
-// class App extends React.Component
-// {
-
-//   constructor()
-//   {
-//     super()
-//     this.state= {
-//       data:0
-//     }
-//   }
-//   apple()
-//   {
-//     this.setState({data: this.state.data+1});
-//   }
-//   render(){
-//     return(
-//       <div className="App">
-//       <p> {this.state.data}</p>
-//       <button onClick={()=>this.apple()}>update data</button>
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;
