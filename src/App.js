@@ -1,19 +1,19 @@
 // import React,{Component} from 'react';
 
 import './App.css';
-import User from './User'
+// import User from './User'
+
 function App() {
-function Inner()
-{
-  return(
-    <h1>Inner function</h1>
-  )
+  let data ="Sumit Chaurasiya";
+function apple(){
+  data ="Amit Chaurasiya";
+  alert(data);
 }
   return (
     <div className="App">
-      <h1>Hello world  </h1>
-      <User />
-      {Inner()}
+      <h1>{data}</h1>
+    <button onClick = {apple}> Click me </button>
+    
     </div>
   );
 }
