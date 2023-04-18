@@ -1,17 +1,25 @@
-import React,{useState} from 'react';
+import React from 'react';
 
 import './App.css';
 import Student from './Student';
-function App(){
-  const[name, setName]= useState("Sumit");
-  return(
-  <div className='App'>
-    <h1>{name}</h1>
-    <Student name={name}/>
-     {/* <Student name={"Sunil"} Email="sunit@gmail.com" other={{address: "mumbai", mobile:"8888888888888"}}/>
-    <Student name={"Sumit"} Email="sumit@gmail.com" other={{address: "patna", mobile: "88888"}}/> */}
-      <button onClick={()=> {setName("Amit")}}>update name</button>
-      </div> 
-);
+class App extends React.Component{
+  constructor(){
+    super()
+    this.state={
+      name:"Sumit"
+    }
+  }
+  render()
+  {
+    return(
+      <div className='App'>
+        <h1> Prps in class Component</h1>
+        <Student name={this.state.name} Email="Sumit@gmail.com"/>
+       <button onClick={()=>this.setState({name:"Amit"})}>update name</button>
+    
+      </div>
+    )
+    
+  }
 }
 export default App;
