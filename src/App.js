@@ -5,17 +5,31 @@ import './App.css';
 
 
 function App(){
-  const[status, setStatus] = useState(true);
-  return(
+  const[name,setName]= useState("");
+  const[tnc,setTnc]= useState(false);
+  const[interest,setInterest]= useState("");
+  function getFormData(e)
+  {
+    console.warn(name, tnc, interest)
+e.preventDefault()
+  }
+   return(
     <div className='App'> 
-      {
-       status? <h1>hello world</h1> : null   
-      }
-    {/* <button onClick={()=> setStatus(false)}>Hide </button>
-    <button onClick={()=> setStatus(true)}>Show</button> */}
-    <button onClick={()=> setStatus(!status)}>toggle </button>
-
-    </div>
+  <h1>Handle form in react</h1><br/><br/>
+  <form onSubmit={getFormData}>
+    <input type="text" placeholder='Enter name' value= {name} onChange={(e)=> setName(e.target.value)}/> <br/><br/><br/>
+    
+    <select onChange={(e)=> setInterest(e.target.value)}>      
+      <option>Option</option>
+      <option>Marwal</option>
+      <option>DC</option>
+      </select><br/><br/>
+     <input type="checkbox" onChange={(e)=> setTnc(e.target.checked)} /> <span>Accept Terms and condition</span>
+    <br/><br/>
+    <button type='Submit'>Submit</button>
+    
+  </form>
+      </div>
   );
 };
 
