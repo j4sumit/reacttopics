@@ -5,9 +5,9 @@ import './App.css';
 
 
 function App(){
-  const[status, setStatus]=useState(true);
+  const[status, setStatus] = useState(true);
   return(
-    <div className='App'>
+    <div className='App'> 
       {
        status? <h1>hello world</h1> : null   
       }
