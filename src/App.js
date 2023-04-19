@@ -14,7 +14,7 @@ function App(){
   return(
     <div className='App'>
     
-     { print? <h1>{data}</h1> : null}
+     { print? <h1>{  data}</h1> : null}
     
     <input type="text" onChange={getData}/>
     <button onClick={()=>setPrint(true)}>Print   Data</button>
