@@ -1,15 +1,23 @@
-// import React,{useState} from 'react';
-import Profile from './Profile';
-
 import './App.css';
+import React from "react";
+import User from './User';
+import Members from './Members';
+
+function App()
+{
+function getData()
+{
+  alert("hellow from App");
+}
 
 
-function App(){
-   return(
+  return(
 <div className='App'>
-  <Profile />
-</div>
-  );
-};
-
+  <User data={getData}/>
+  <div>
+  <Members data={getData}/>
+  </div>
+    </div>
+  )
+}
 export default App;
