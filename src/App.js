@@ -1,34 +1,17 @@
 import './App.css';
-import React from "react";
-// import User from './User';
-// import Members from './Members';
-// import { render } from '@testing-library/react';
+import React from 'react';
+import './Style.css';
+import style from './custom.module.css';
 
-class App extends React.Component
+function App() 
 {
-
-  constructor(){
-    super();
-this.state={
-  name:"sumit"
-
-}
-console.log("constructor");
-}
-componentDidUpdate()
-{
-  console.log(" componet did update")
-}
-render()
-{
-console.log("render");
   return(
     <div className='App'>
-      <h1>Component did update {this.state.name}</h1>
-      <button onClick={()=> {this.setState({name:"chaurasiya"})}}>update name</button>
+      <h1 className='primary'>Style in React</h1>
+      <h1 style={{color:'red', backgroundColor:'yellow'}}>Style in React</h1>
+      <h1 className={style.success}>Style in React</h1>
+      
     </div>
-  );
-}
-
+    );
 }
 export default App;
