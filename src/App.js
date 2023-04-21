@@ -1,23 +1,34 @@
 import './App.css';
 import React from "react";
-import User from './User';
-import Members from './Members';
+// import User from './User';
+// import Members from './Members';
+// import { render } from '@testing-library/react';
 
-function App()
+class App extends React.Component
 {
-function getData()
+
+  constructor(){
+    super();
+this.state={
+  name:"sumit"
+
+}
+console.log("constructor");
+}
+componentDidUpdate()
 {
-  alert("hellow from App");
+  console.log(" componet did update")
+}
+render()
+{
+console.log("render");
+  return(
+    <div className='App'>
+      <h1>Component did update {this.state.name}</h1>
+      <button onClick={()=> {this.setState({name:"chaurasiya"})}}>update name</button>
+    </div>
+  );
 }
 
-
-  return(
-<div className='App'>
-  <User data={getData}/>
-  <div>
-  <Members data={getData}/>
-  </div>
-    </div>
-  )
 }
 export default App;
