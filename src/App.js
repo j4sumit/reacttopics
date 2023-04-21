@@ -6,38 +6,63 @@ function App()
   // const student =['anil','siddhu','sam','peter'];
   
   const student=[
-{ name:"sumit",  contact: 1111111111,  email: "xyz@gmail.com"},
-{ name:"Amit",  contact: 222222222,  email: "abc@gmail.com"},
-{  name:"raju",  contact: 111,  email: "raju@gmail.com"}
+{ name:"sumit",  contact: 1111111111,  email: "xyz@gmail.com",
+address:[
+  {HN:"10", city:"noida",country:"india"},
+  {HN:"100", city:"noidaa",country:"indiaa"},
+  {HN:"1000", city:"noidaa",country:"indiaaa"}
+]},
+{ name:"Amit",  contact: 222222222,  email: "abc@gmail.com", address:
+[
+  {HN:"10", city:"noida",country:"india"},
+  {HN:"100", city:"noidaa",country:"indiaa"},
+  {HN:"1000", city:"noidaa",country:"indiaaa"}
+]},
+{  name:"raju",  contact: 111,  email: "raju@gmail.com",address:
+[
+  {HN:"10", city:"noida",country:"india"},
+  {HN:"100", city:"noidaa",country:"indiaa"},
+  {HN:"1000", city:"noidaa",country:"indiaaa"}
+]}
 ]
 
   return(
     <div className='App'>
-      <h1>List with bootstrap</h1>
+      <h1>List with nested arry</h1>
       <Table striped variant='dark'>
-<tbody>
+        <tbody>
           <tr>
-          <th>Name</th>
-          <th>Contact</th>
-          <th>Email</th>
+          <td>Sr no.</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td>address</td>
+            
           </tr>
-{
-  student.map((item,i)=>
-  /*<tr key={i}>
-   <td>{item.name}</td>
-  <td>{item.contact}</td>
-  <td>{item.email}</td> */
-item.contact===222222222?  
-<tr key={i}>
-  <td>{item.name}</td>
-  <td>{item.contact}</td>
-  <td>{item.email}</td>
-  </tr> : null
-  )
-}
-</tbody>
+          {
+            student.map((item,i)=>
+            <tr key={i}>
+              <td>{i}</td>
+            <td>{item.name}</td>
+            <td>{item.contact}</td>
+            <td>{item.email}</td>
+            
+            <td>
+             {
+               item.address.map((data)=>
+               <tr>
+               <td>{data.HN}</td>
+               <td>{data.city}</td>
+               <td>{data.country}</td>
+               </tr>
+ 
+               )
+             } 
+            </td>
+            </tr>
+            )
+          }
+        </tbody>
         </Table>
-
     </div>
   )
 }
