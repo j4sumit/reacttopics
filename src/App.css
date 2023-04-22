@@ -1,9 +1,13 @@
 .App {
   text-align: center;
 }
-/* th,td{
-  border: 1;
-} */
+span{
+  padding: 15px;
+  background: green;
+  color: white;
+  font-size: 30px;
+  margin-bottom: 5px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
