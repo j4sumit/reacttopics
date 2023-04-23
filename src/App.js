@@ -1,13 +1,11 @@
 // import React from "react";
-import { From } from "react-bootstrap";
+// import { From } from "react-bootstrap";
 import './App.css';
-// import User from "./User";
-
+import User from "./User";
 import React,{PureComponent} from "react";
 class App extends PureComponent
 {
- 
-    constructor()
+     constructor()
     {
         super();
         this.state={
@@ -16,16 +14,16 @@ class App extends PureComponent
     }
     render()
     {
-        console.log("check rerendering");
+     
         return(
             <div className="App">
-            <h1>Pure Component in React {this.state.count}</h1>
-            <button onClick={()=>this.setState({count: this.state.count+1})}>update cuount</button>
+     <User count={this.state.count}/>
+            <button onClick={()=>this.setState({count: this.state.count})}>
+                update cuount
+                </button>
             </div>
         )
     }
-    
-
 }
 export default App;
 

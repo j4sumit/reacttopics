@@ -1,15 +1,20 @@
-// function User(props)
-// {
-//   const data ={name:"Anil chaurasiya", email: "j4sumit@gmail.com", contactno: 1234567890};
+// import { from } from "react-bootstrap";
+import './App.css';
+// import User from "./User";
 
-
-//   return(
-//     <div>
-//       <h1>User Name: </h1>
-//       {/* <button onClick={props.alert}> Cleck me</button> */}
-//       <button onClick={()=>props.alert(data)}>click me </button>
-//     </div>
-//   )
-// }
-
-// export default User;
+import React from "react";
+class User extends React.Component
+{
+ 
+    render()
+    {
+      console.warn("user component check rerendering");
+        return(
+            <div className="App">
+            <h1>User Component {this.props.count}</h1>
+            
+            </div>
+        )
+    }
+    }
+export default User;
