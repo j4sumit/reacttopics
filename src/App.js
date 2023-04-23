@@ -1,24 +1,21 @@
 import './App.css';
 import React,{useRef} from 'react';
-
+import User from './User';
 function App()
 {
-    let inputRef = useRef(null);
-    function handleInput()
+    let inputRef=useRef(null);
+    function updateInput()
     {
-console.warn("function called");
-inputRef.current.value="1000";
-inputRef.current.focus();
-inputRef.current.style.color="red";
-inputRef.current.style.display="none"
-}
+        inputRef.current.value="100";
+        inputRef.current.style.color="blue"
+        inputRef.current.focus();
+    }
 
     return(
         <div className='App'>
-            <h1>Use ref in function component</h1>
-            <input type="text" ref={inputRef}/>
-            <button onClick={()=>handleInput()}>Handle input</button>
-
+            <h1>forwardRef in React</h1>
+            <User ref={inputRef}/>
+            <button onClick={updateInput}>Update InputBox</button>
         </div>
     )
 }

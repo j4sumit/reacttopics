@@ -1,20 +1,15 @@
-// import { from } from "react-bootstrap";
-import './App.css';
-// import User from "./User";
 
-import React from "react";
-class User extends React.Component
+import React,{forwardRef} from "react";
+
+function User(props,ref)
 {
- 
-    render()
-    {
-      console.warn("user component check rerendering");
-        return(
-            <div className="App">
-            <h1>User Component {this.props.count}</h1>
+    return(
+        <div className="App">
+            <input type="text" ref={ref}/>
             
+
             </div>
-        )
-    }
-    }
-export default User;
+    )
+}
+
+export default forwardRef(User);
