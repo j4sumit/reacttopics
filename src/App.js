@@ -1,29 +1,35 @@
-// import React from "react";
-// import { From } from "react-bootstrap";
 import './App.css';
-import User from "./User";
-import React,{PureComponent} from "react";
-class App extends PureComponent
+import React,{createRef} from 'react';
+class App extends React.Component
 {
-     constructor()
+    constructor()
     {
         super();
-        this.state={
-            count:1
-        }
+        this.inputref=createRef()
+        
+    }
+    componentDidMount()
+    {
+        console.warn(this.inputref.current.value="1000");
+    }
+
+    getVal()
+    {
+console.log(this.inputref.current.value);
+this.inputref.current.style.color="red"
+this.inputref.current.style.background="black";
     }
     render()
     {
-     
-        return(
-            <div className="App">
-     <User count={this.state.count}/>
-            <button onClick={()=>this.setState({count: this.state.count})}>
-                update cuount
-                </button>
-            </div>
-        )
+     return(
+         <div className='App'>
+             <h1>Ref in React</h1>
+             <input type="text" ref={this.inputref} />
+             <button onClick={()=>this.getVal()}>Check ref</button>
+
+         </div>
+     )   
     }
 }
-export default App;
 
+export default App;
