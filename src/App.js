@@ -1,19 +1,29 @@
 import './App.css';
-import React,{useState} from 'react';
+import React,{useRef} from 'react';
+
 
 
 function App()
 {
-    let[val, setVal] = useState("00");
-    let[item, setItem] = useState("");
+
+    let inputRef=useRef(null);
+    let inputRef1=useRef(null);
+
+    function submitForm(e)
+    {
+        e.preventDefault();
+        console.warn("input field value: ",inputRef.current.value)
+        console.warn("input field value: ",inputRef1.current.value)
+    }
     return(
         <div className='App'>
-            <h1>Controlled component</h1>
-            <input type="text" defaultValue ="please enter here" onChange={(e)=>setVal(e.target.value)}/>
-            <input type="text" defaultValue ="please enter here" onChange={(e)=>setItem(e.target.value)}/>
-            <h2>Value: {val}</h2>
-            <h2>Item : {item}</h2>
-
+            <h1>UnControlled component</h1>
+            <form onSubmit={submitForm}> 
+            <input ref={inputRef} type="text"/>
+            <input ref={inputRef1} type="text"/>
+            <button>submit</button>
+            </form>
+    
         </div>
     )
 }
