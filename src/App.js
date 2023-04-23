@@ -1,35 +1,26 @@
 import './App.css';
-import React,{createRef} from 'react';
-class App extends React.Component
+import React,{useRef} from 'react';
+
+function App()
 {
-    constructor()
+    let inputRef = useRef(null);
+    function handleInput()
     {
-        super();
-        this.inputref=createRef()
-        
-    }
-    componentDidMount()
-    {
-        console.warn(this.inputref.current.value="1000");
-    }
+console.warn("function called");
+inputRef.current.value="1000";
+inputRef.current.focus();
+inputRef.current.style.color="red";
+inputRef.current.style.display="none"
+}
 
-    getVal()
-    {
-console.log(this.inputref.current.value);
-this.inputref.current.style.color="red"
-this.inputref.current.style.background="black";
-    }
-    render()
-    {
-     return(
-         <div className='App'>
-             <h1>Ref in React</h1>
-             <input type="text" ref={this.inputref} />
-             <button onClick={()=>this.getVal()}>Check ref</button>
+    return(
+        <div className='App'>
+            <h1>Use ref in function component</h1>
+            <input type="text" ref={inputRef}/>
+            <button onClick={()=>handleInput()}>Handle input</button>
 
-         </div>
-     )   
-    }
+        </div>
+    )
 }
 
 export default App;
