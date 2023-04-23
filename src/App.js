@@ -1,20 +1,31 @@
-import React from "react";
+// import React from "react";
+import { From } from "react-bootstrap";
 import './App.css';
-import User from "./User";
-function App()
+// import User from "./User";
+
+import React,{PureComponent} from "react";
+class App extends PureComponent
 {
-    function parentalert(data)
+ 
+    constructor()
     {
-alert(data.email);
+        super();
+        this.state={
+            count:1
+        }
+    }
+    render()
+    {
+        console.log("check rerendering");
+        return(
+            <div className="App">
+            <h1>Pure Component in React {this.state.count}</h1>
+            <button onClick={()=>this.setState({count: this.state.count+1})}>update cuount</button>
+            </div>
+        )
     }
     
-    return(
-        <div className="App">
-            <h1>Lifting up state</h1>
-            <User alert={parentalert}/>
-        </div>
 
-    )
 }
 export default App;
 
