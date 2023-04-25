@@ -1,18 +1,21 @@
 import './App.css';
 import React from 'react';
-import { BrowserRouter as Router, Link, Route,Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 function App() {
     return (
         <div className='App'>
             <Router>
-                <Link to="/home">Home page</Link>
+                <Link to="/">Home page</Link>
                 <br />
-                <Link to="/about">about page</Link>
+                <Link to="/about">about page</Link><br/>
+                <Link to="/login">Login page</Link>
                 <Routes>
-              <Route path="/home" element = {<Home />}/>
-              <Route path="/about" element = {<About />}/>
-                
-                </Routes>
+                    <Route path="/" exact ={true} element={<Home />} />
+
+                    <Route path="/about" element={<About />} />
+                    <Route path="*" element={<PageNotFound />} />
+
+                     </Routes>
             </Router>
         </div>
     );
@@ -35,4 +38,13 @@ function About() {
         </div>
     )
 }
+function PageNotFound() {
+    return (
+        <div>
+            <h1>404 Page</h1>
+            <h2>this is not found</h2>
+        </div>
+    )
+}
+
 export default App;
