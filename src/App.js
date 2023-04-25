@@ -1,18 +1,18 @@
 import './App.css';
 import React from 'react';
-import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route,Routes } from 'react-router-dom';
 function App() {
     return (
         <div className='App'>
             <Router>
                 <Link to="/home">Home page</Link>
+                <br />
                 <Link to="/about">about page</Link>
                 <Routes>
-                  <Route path="/home"><Home /> </Route>
-                <Route path="/about"><About /> </Route>
+              <Route path="/home" element = {<Home />}/>
+              <Route path="/about" element = {<About />}/>
+                
                 </Routes>
-
-
             </Router>
         </div>
     );
@@ -36,4 +36,3 @@ function About() {
     )
 }
 export default App;
-
