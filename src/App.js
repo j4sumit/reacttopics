@@ -1,30 +1,26 @@
-import './App.css';
-import React from 'react';
-import User from './User';
-import { BrowserRouter as Router, Link, Route,Routes } from 'react-router-dom';
-function App() {
+import React from 'react'
+import { useEffect } from 'react';
+import "./App.css";
 
-    let users = [
-        {id:1, name:"Sunit", mail:'j4sumit@gmail.co'},
-        {id:2, name:"Aunit", mail:'Amint@gmail.co'},
-        {id:3, name:"Sanjay", mail:'Sanjay@gmail.co'}
-    ]
+const App = () => {
+    useEffect(() => {
+        fetch("https://jsonplaceholder.typicode.com/users")
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+    }, []);
     return (
         <div className='App'>
-            <Router>
-<h1>Dynamic Routing</h1>
-{
-users.map((item)=> 
-<div><Link to={"/user/"+ item.id}><h3>{item.name}</h3></Link></div>)
-}
-<Routes>
-<Route path="/user/:id" element= {<User />}/>
-            
-            </Routes>
-            </Router>
+            <h1>users</h1>
+            <div className='card'>
+                <div className='"card-inner'>
+                    <p>Sumit </p>
+                    <p>Chaurasiya</p>
+                </div>
+                
+            </div>
+
         </div>
-    );
+    )
 }
 
-
-export default App;
+export default App
