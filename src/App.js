@@ -1,24 +1,41 @@
 import React from 'react'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import "./App.css";
 
 const App = () => {
+    const [users, setUser] = useState([]);
     useEffect(() => {
         fetch("https://jsonplaceholder.typicode.com/users")
             .then((response) => response.json())
-            .then((json) => console.log(json));
+            .then((json) => setUser(json));
     }, []);
+
+
+    // const myData =() =>{
+    //     let newarray =users.map((user)=> user.id *2);
+    //     console.log(newarray);
+    // }
+
+    const myData =() =>{
+        let newarray =users.filter((user)=> {
+//  return user.name === "Leanne Graham";
+// return user.name.includes("a");
+return user.id <= 5;
+        });
+setUser(newarray);
+    }
+
     return (
         <div className='App'>
-            <h1>users</h1>
-            <div className='card'>
-                <div className='"card-inner'>
-                    <p>Sumit </p>
-                    <p>Chaurasiya</p>
-                </div>
-                
-            </div>
+            {
+                users.map((user) =>
+                    <div>
+                        {user.name}
+                    </div>
+                )
 
+            }
+                            <button onClick={myData}>Submit</button> 
         </div>
     )
 }
