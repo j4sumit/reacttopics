@@ -1,50 +1,25 @@
-import { Button } from 'bootstrap';
-import React from 'react'
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import "./App.css";
 
 const App = () => {
+const [count, setCount] =useState(0);
 
-    // const [users, setUser] = useState([]);
-    // useEffect(() => {
-    //     fetch("https://jsonplaceholder.typicode.com/users")
-    //         .then((response) => response.json())
-    //         .then((json) => setUser(json));
-    // }, []);
-
-
-    // const myData =() =>{
-    //     let newarray =users.map((user)=> user.id *2);
-    //     console.log(newarray);
-    // }
-
-    // const myData =() =>{
-    //     let newarray =users.filter((user)=> {
-//  return user.name === "Leanne Graham";
-// return user.name.includes("a");
-// return user.id <= 5;
-//         });
-// setUser(newarray);
-//     }
-const [numbers, setNumbers] = useState([1,2,3,4,5,6,7,8,9]);
-const myData= ()=>{
-    let numberlessthan5 = numbers.filter((num)=> num<5).map((filterdata)=> filterdata*filterdata);
-    setNumbers(numberlessthan5); 
+const handleIncrement =()=>{
+    setCount(count+1);
 }
 
+const handleDecrement =()=>{
+    setCount(count-1);
+}
     return (
-        <div className='App'>
-            {
-                numbers.map((number) =>
-                    <div>
-                        {number}
-                    </div>
-                )
+        <div className="App">
 
-            }
-<button onClick={myData}>Result</button>              
+<h1> you coust is : {count} </h1>       
+<button onClick={handleIncrement}>Increment </button>
+<button onClick={handleDecrement}>Increment </button>
         </div>
     )
+
 }
 
 export default App
