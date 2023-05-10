@@ -1,28 +1,17 @@
-import {  useState } from 'react';
 import "./App.css";
+import React,{Component} from "react";
 
-const App = () => {
-const [count, setCount] =useState(0);
-const [visible, setVisible] =useState(false);
+export default class App extends Component  {
+    constructor(){
+super();
+this.state= {name: "Sumit",};
+    }
+    render()
+    {
 
-const handleIncrement =()=>{
-    setCount(count+1);
-    setVisible(!visible);
+    return (<div>{this.state.name}</div>)
+          
+        
+    }
+    
 }
-
-const handleDecrement =()=>{
-    setCount(count-1);
-}
-    return (
-        <div className="App">
-
-<h1> you coust is : {count} </h1>     
-{visible? <h1>Visible </h1> : <h1>Not visible</h1>}
-<button onClick={handleIncrement}>Increment </button>
-<button onClick={handleDecrement}>Increment </button>
-        </div>
-    )
-
-}
-
-export default App
