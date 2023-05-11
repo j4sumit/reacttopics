@@ -1,29 +1,42 @@
 import "./App.css";
-import React, {useState} from 'react';
+import React from 'react'
 
-const App = () => {
-  const[inputs, setInputs] =useState({})
-  const getInputValues=(data)=>{
-let {name, value} =data.target ;
-let item ={[name]: value};
-setInputs({...inputs, ...item});
+let styles={
+
+  Internal : {
+    color:"balck",
+  },
+  light :{
+  backgroundColor:"white",
+  color:"black"
+  },
+  dark : {
+    backgroundColor:"black",
+    color:"white"
   }
-  console.log(inputs);
+
+}
+
+function App() {
+
+  const [theme, setTheme] = React.useState(false);
+  const toggleTheme=()=> { 
+    setTheme(!theme);
+  }
+
   return (
-    <div>
-      <input placeholder='Enter you name' name="name" 
-      onChange={getInputValues}
-      />
-      <input placeholder='Enter you Age' name="age"
-      onChange={getInputValues}
-       />
-      
-      <input placeholder='Enter your experience' name="eyo"
-      onChange={getInputValues}
-      /> 
-      <button type='submit'>Submit</button>
-    </div>
+    <div style={theme ? styles.lights: styles.dark}>
+      <h1 className="external">External Styling</h1>
+      <h1 >Internal Styling</h1>
+      <h1 style={
+        theme 
+        ? {color:"black", backgroundColor:"white"}
+        : {color: "white", backgroundColor:"black"}
+      }> Inline Styling</h1>
+      <button onClick={toggleTheme}>Toggle-theme </button>
+      </div>
   )
+ 
 }
 
 export default App
