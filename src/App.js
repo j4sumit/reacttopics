@@ -5,8 +5,8 @@ import Child from "./Child";
 
 const App = () => { 
     const [name, setName]= useState("Sumit Chaurasiya");
-function changename(){
-  setName("Chaurasiya jee")
+function changename(val){
+  setName(val)
 }
 
   return (

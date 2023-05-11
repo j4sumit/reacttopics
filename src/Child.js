@@ -5,7 +5,7 @@ const Child = ({data, funname}) => {
     <div>
         <h1>Child component</h1>
         <h1>{data}</h1>
-        <button onClick={funname}>Change name</button>
+        <button onClick={()=>{funname("Value has been change by child component")}}>Change name</button>
 
 
     </div>
