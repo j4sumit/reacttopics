@@ -1,19 +1,35 @@
 import React from 'react'
 
 const App = () => {
-  
- function getInput(event)
+  const details =[
   {
-console.log(event.target.value);
-  }
-const addNums=(a,b)=>{
-  console.log(a+b);
-}
+    Name: "sumit",
+    Age : 28,
+  },
+ {
+   Name:"Amit",
+   Age : 30,
+ },
+ {
+   Name:"sanjay",
+   Age: 35
+ },
+ {
+   Name:"Raju",
+   Age: 24,
+ }
+]
   return (
     <div>
-    <h1>Event Handling</h1>
-    <input placeholder='Type something here' onChange={getInput}></input>
-    <button onClick={()=>{addNums(10,19)}}>Sum of two num</button>
+    <ul>
+    {details.map((data,index) => {
+return (
+<div key={index}>
+<li>{data.Name} </li>
+<li>{data.Age}</li>
+</div>
+    )})}
+    </ul>
     </div>
   )
 }
