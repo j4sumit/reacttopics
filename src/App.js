@@ -5,11 +5,15 @@ import Child from "./Child";
 
 const App = () => { 
     const [name, setName]= useState("Sumit Chaurasiya");
+function changename(){
+  setName("Chaurasiya jee")
+}
+
   return (
     <div>
 <h1>Parent Component</h1>
-<Child value={name}/>
-<button onClick={()=>{setName("Front End Developer")}}>changename</button>
+<Child data={name} funname={changename}/>
+{/* <button onClick={()=>{setName("Front End Developer")}}>changename</button> */}
     </div>
   )
 }

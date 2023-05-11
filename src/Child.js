@@ -1,10 +1,12 @@
 import React from 'react'
 
-const Child = (props) => {
+const Child = ({data, funname}) => {
   return (
     <div>
         <h1>Child component</h1>
-        <h1>{props.value}</h1>
+        <h1>{data}</h1>
+        <button onClick={funname}>Change name</button>
+
 
     </div>
   )
