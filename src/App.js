@@ -1,20 +1,18 @@
-import "./App.css";
-import React, { useState } from 'react'
-import Child from "./Child";
+import React, {useEffect} from 'react'
 
+const App = () => {
 
-const App = () => { 
-    const [name, setName]= useState("Sumit Chaurasiya");
-function changename(val){
-  setName(val)
-}
-
+  useEffect(()=>{
+    let Age=37;
+    let name="Sumit";
+    Age>35 ? console.log("you are too older"): 
+    Age===28 && name==="Sumit" ? 
+    console.log("your age and name has been matched") : 
+    console.log("your age is below 28")
+  },[])
   return (
-    <div>
-<h1>Parent Component</h1>
-<Child data={name} funname={changename}/>
-{/* <button onClick={()=>{setName("Front End Developer")}}>changename</button> */}
-    </div>
+    <div>Inline conditional expression</div>
+ 
   )
 }
 
