@@ -1,47 +1,28 @@
-import React, { useState } from 'react'
+import "./App.css";
+import React, {useState} from 'react';
 
 const App = () => {
-  const[objdata, setObjdata]= useState({});
-  const getInputs =(value,name)=>{
-    // console.log({[name] : value});
-    let data= {[name] : value};
-    setObjdata({...objdata, ...data});
-  };
-
-  const submit =(event)=>{
-    event.preventDefault();
-    console.log(objdata);
+  const[inputs, setInputs] =useState({})
+  const getInputValues=(data)=>{
+let {name, value} =data.target ;
+let item ={[name]: value};
+setInputs({...inputs, ...item});
   }
-console.log(objdata);
+  console.log(inputs);
   return (
-    <form onSubmit={submit}>
     <div>
-      
-      <input placeholder='Enter you name'
-      name='name'
-      type="text"
-       onChange={(event)=> getInputs(event.target.value, event.target.name)}
+      <input placeholder='Enter you name' name="name" 
+      onChange={getInputValues}
+      />
+      <input placeholder='Enter you Age' name="age"
+      onChange={getInputValues}
        />
-
-      <input placeholder='Enter you Age'
-      name='age'
-      type="number"
-      onChange={(event)=> getInputs(event.target.value, event.target.name)}
-      />
-      <input placeholder='Enter you hobbies'
-      name='hobbies'
-      type="text"
-      onChange={(event)=> getInputs(event.target.value, event.target.name)}
-      />
-      <input placeholder='Enter a date'
-      name='date'
-      type="date"
-      onChange={(event)=> getInputs(event.target.value, event.target.name)}
-      />
+      
+      <input placeholder='Enter your experience' name="eyo"
+      onChange={getInputValues}
+      /> 
       <button type='submit'>Submit</button>
-      <button type='reset'>Reset</button>
     </div>
-    </form>
   )
 }
 
